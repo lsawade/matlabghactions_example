@@ -27,6 +27,7 @@ set(gca,'XTick', ticklocations);
 set(gca,'XTickLabel', ticklabels);
 set(gca,'YTick', ticklocations);
 set(gca,'YTickLabel', ticklabels);
+set(gca,'YDir','normal')
 
 % Colorbar
 % colormap('rainbow');
@@ -36,10 +37,3 @@ colorbar;
 
 % Put box on top
 set(gca,'Box','on');
-
-% Fix title offset
-pos  = get( tH , 'position' );
-pos1 = pos - [0 0.1 0];
-set( tH , 'position' , pos1 );
-
-
