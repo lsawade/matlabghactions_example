@@ -1,3 +1,7 @@
+[![MATLAB Tests on Github Host](https://github.com/lsawade/matlabghactions_example/actions/workflows/unittesting.yml/badge.svg)](https://github.com/lsawade/matlabghactions_example/actions/workflows/unittesting.yml)
+
+---
+
 # Matlab and Github Actions for Unit Testing
 
 This is a minimal example that shows you how you can automate unit testing using
@@ -28,8 +32,22 @@ Only the results of the tests are printed.
 
 ### Github Actions
 
+The Github Actions Worklow ot run your unit tests is located at
+`.github/workflows/`[`unittesting.yml`]. The [`unittesting.yml`] runs the tests
+in just a few steps.
 
+1. Checks out the repo
+2. Installs Matlab (essentially copying)
+3. Runs tests (initialization here takes a bit sometimes)
 
+If your tests pass you get this cute badge linked to your `workflow`:
+
+[![MATLAB Tests on Github Host](https://github.com/lsawade/matlabghactions_example/actions/workflows/unittesting.yml/badge.svg)](https://github.com/lsawade/matlabghactions_example/actions/workflows/unittesting.yml)
+
+You can reach the badge creator by clicking on the three dots in the top-right
+of the Github Action Page of you your workflow. Then, add the badge to your
+docs. The badge will be automatically updated if your newly pushed tests
+pass/fail. 
 
 ## Not important things
 
@@ -47,4 +65,4 @@ function there is an example script as well located in
 [`test_func.m`]: tests/test_func.m
 [`runtests.m`]: runtests.m
 [`pathsetup.m`]: pathsetup.m
-
+[`unittesting.yml`]: .github/workflows/unittesting.yml

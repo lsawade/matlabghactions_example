@@ -1,15 +1,43 @@
-name: Run MATLAB Tests on GitHub-Hosted Runner
-on: [push]
+name: MATLAB Tests
+
+# This little tree tells Github when to run the workflow
+on:
+  # Here only when pushed to branch main
+  push:
+    branches: [ main ]
+
+  # Here only when pull requested to main
+  pull_request:
+    branches: [ main ]
+
 jobs:
   my-job:
     name: Run MATLAB Tests
+
+    # System that you run on
     runs-on: ubuntu-latest
+    
+    # Steps to be run 
     steps:
+
+      # Checking out the repo
       - name: Check out repository
         uses: actions/checkout@v2
+      
+      # Get matlab
       - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v0
+      
+      # Run the tests!
       - name: Run Unit Tests
         uses: matlab-actions/run-command@v0
         with:
           command: runtests
+
+      # Just an example that you can run arbitrary shell functions
+      - name: Print finished
+        shell: bash -l {0}
+        run: |
+          echo " - - - - - - - - - - - "
+          echo "|  Finished Testing!  |"
+          echo " - - - - - - - - - - - "
